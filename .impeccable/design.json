@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T02:37:18Z",
+  "title": "Design System: Dify AutoPE",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Control Ink",
+        "tonalRamp": ["oklch(15% 0.06 296)", "oklch(27% 0.06 296)", "oklch(39% 0.06 296)", "oklch(51% 0.06 296)", "oklch(63% 0.06 296)", "oklch(75% 0.05 296)", "oklch(87% 0.03 296)", "oklch(95% 0.01 296)"]
+      },
+      "orchid": {
+        "role": "primary",
+        "displayName": "Operational Orchid",
+        "tonalRamp": ["oklch(15% 0.13 295)", "oklch(27% 0.17 295)", "oklch(39% 0.21 295)", "oklch(51% 0.23 295)", "oklch(63% 0.22 295)", "oklch(75% 0.17 295)", "oklch(87% 0.09 295)", "oklch(95% 0.03 295)"]
+      },
+      "rose": {
+        "role": "secondary",
+        "displayName": "Candidate Rose",
+        "tonalRamp": ["oklch(15% 0.11 350)", "oklch(27% 0.16 350)", "oklch(39% 0.21 350)", "oklch(51% 0.22 350)", "oklch(63% 0.20 350)", "oklch(75% 0.15 350)", "oklch(87% 0.08 350)", "oklch(95% 0.03 350)"]
+      },
+      "cloud": {
+        "role": "neutral",
+        "displayName": "Cloud Field",
+        "tonalRamp": ["oklch(15% 0.02 290)", "oklch(27% 0.02 290)", "oklch(39% 0.02 290)", "oklch(51% 0.02 290)", "oklch(63% 0.02 290)", "oklch(75% 0.02 290)", "oklch(87% 0.02 290)", "oklch(97% 0.01 290)"]
+      }
+    },
+    "typographyMeta": {
+      "page-header": {
+        "displayName": "Variable Page Header",
+        "purpose": "The single dominant page-level statement."
+      },
+      "body": {
+        "displayName": "Operational Body",
+        "purpose": "Controls, supporting copy, report data, and dense Chinese interface text."
+      },
+      "label": {
+        "displayName": "Structured Label",
+        "purpose": "Form labels and structured operational metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "control-rail-and-panel",
+        "value": "0 18px 46px rgba(78, 57, 146, .12)",
+        "purpose": "Diffuse lift for translucent sidebar and principal panels."
+      },
+      {
+        "name": "metric-card",
+        "value": "0 10px 24px rgba(81, 64, 137, .07)",
+        "purpose": "Quiet depth for compact scan targets."
+      },
+      {
+        "name": "status-strip",
+        "value": "0 14px 30px rgba(112, 75, 205, .21)",
+        "purpose": "Operational emphasis for the contextual top strip."
+      },
+      {
+        "name": "release-gate",
+        "value": "0 16px 34px rgba(90, 61, 186, .2)",
+        "purpose": "Decision emphasis for the GO or NO-GO banner."
+      }
+    ],
+    "motion": [
+      {
+        "name": "nav-state",
+        "value": "color .2s ease, background-color .2s ease, transform .2s ease",
+        "purpose": "Navigation hover response."
+      },
+      {
+        "name": "signal-rise",
+        "value": ".64s cubic-bezier(.2, .9, .2, 1)",
+        "purpose": "Top-strip entrance when reduced motion is not requested."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-rail",
+        "value": "980px"
+      },
+      {
+        "name": "mobile-control-room",
+        "value": "620px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "action-primary",
+      "description": "Primary Vant action with operational-orchid fill and a soft lifted shadow.",
+      "html": "<button class=\"ds-action-primary\">开始评测</button>",
+      "css": ".ds-action-primary { padding: 10px 16px; color: #fff; background: #7657f6; border: 1px solid #7657f6; border-radius: 12px; box-shadow: 0 8px 16px rgba(118, 87, 246, .24); font: 700 14px PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease; } .ds-action-primary:hover { background: #583ccf; transform: translateY(-1px); } .ds-action-primary:focus-visible { outline: 3px solid rgba(118, 87, 246, .34); outline-offset: 3px; } .ds-action-primary:active { transform: translateY(0); }"
+    },
+    {
+      "name": "Navigation Item",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "Two-line icon navigation entry; active state uses the pale orchid gradient.",
+      "html": "<a class=\"ds-nav-item ds-nav-item--active\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z\"/></svg><span><b>评测报告</b><small>图表与差异</small></span></a>",
+      "css": ".ds-nav-item { display: flex; align-items: center; gap: 11px; padding: 10px; color: #6b647d; border-radius: 12px; text-decoration: none; font-family: PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; transition: color .2s ease, background-color .2s ease, transform .2s ease; } .ds-nav-item svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; } .ds-nav-item span { display: grid; gap: 2px; } .ds-nav-item b { font-size: 13px; } .ds-nav-item small { color: #9790a8; font-size: 11px; } .ds-nav-item:hover { color: #583ccf; background: rgba(238, 233, 255, .74); transform: translateX(2px); } .ds-nav-item:focus-visible { outline: 3px solid rgba(118, 87, 246, .34); outline-offset: 3px; } .ds-nav-item--active { color: #4e35ba; background: linear-gradient(100deg, rgba(232, 225, 255, .98), rgba(248, 242, 255, .92)); }"
+    },
+    {
+      "name": "Metric Card",
+      "kind": "card",
+      "refersTo": "metric-card",
+      "description": "Compact translucent scan target with a tabular numeric value.",
+      "html": "<article class=\"ds-metric-card\"><p>高风险通过率</p><strong>100%</strong><span>门槛 100%</span></article>",
+      "css": ".ds-metric-card { display: grid; gap: 8px; min-height: 126px; padding: 20px; color: #241d3d; background: rgba(255, 255, 255, .8); border-radius: 15px; box-shadow: 0 10px 24px rgba(81, 64, 137, .07); font-family: PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; } .ds-metric-card p, .ds-metric-card span { margin: 0; color: #706a84; font-size: 12px; line-height: 1.5; } .ds-metric-card strong { color: #332857; font-size: 31px; letter-spacing: -.045em; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Labeled field with a translucent fill and orchid focus ring.",
+      "html": "<label class=\"ds-field\">评测运行<select><option>run_seed_20261012 · completed</option></select></label>",
+      "css": ".ds-field { display: grid; gap: 7px; color: #4e4665; font: 700 13px PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; } .ds-field select { width: 100%; padding: 10px 11px; color: #241d3d; background: rgba(255, 255, 255, .76); border: 1px solid rgba(105, 83, 196, .17); border-radius: 9px; outline: none; font: 400 13px PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; transition: box-shadow .2s ease, border-color .2s ease; } .ds-field select:focus { border-color: #7657f6; box-shadow: 0 0 0 3px rgba(118, 87, 246, .14); } .ds-field select:focus-visible { outline: 3px solid rgba(118, 87, 246, .34); outline-offset: 3px; }"
+    },
+    {
+      "name": "GO Release Gate",
+      "kind": "custom",
+      "refersTo": "gate-go",
+      "description": "Full-width gate that states release eligibility before report details.",
+      "html": "<section class=\"ds-gate ds-gate--go\"><div><p>晋级门禁</p><strong>GO · 可进入人工发布评审</strong></div><span>2 条失败用例</span></section>",
+      "css": ".ds-gate { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 23px; color: #fff; border-radius: 17px; box-shadow: 0 16px 34px rgba(90, 61, 186, .2); font-family: PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; } .ds-gate--go { background: linear-gradient(102deg, #6251d7, #9b7be8); } .ds-gate p { margin: 0 0 4px; font-size: 12px; opacity: .76; } .ds-gate strong { font-size: 19px; } .ds-gate span { font-size: 13px; font-variant-numeric: tabular-nums; } @media (max-width: 620px) { .ds-gate { align-items: flex-start; flex-direction: column; } }"
+    },
+    {
+      "name": "NO-GO Release Gate",
+      "kind": "custom",
+      "refersTo": "gate-no-go",
+      "description": "Risk-state variant of the release gate; wording and failed-case count remain visible alongside the rose surface.",
+      "html": "<section class=\"ds-gate ds-gate--no-go\"><div><p>晋级门禁</p><strong>NO-GO · 候选不得发布</strong></div><span>2 条失败用例</span></section>",
+      "css": ".ds-gate { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 23px; color: #fff; border-radius: 17px; box-shadow: 0 16px 34px rgba(90, 61, 186, .2); font-family: PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; } .ds-gate--no-go { background: linear-gradient(102deg, #b13467, #dc6a99); } .ds-gate p { margin: 0 0 4px; font-size: 12px; opacity: .76; } .ds-gate strong { font-size: 19px; } .ds-gate span { font-size: 13px; font-variant-numeric: tabular-nums; } @media (max-width: 620px) { .ds-gate { align-items: flex-start; flex-direction: column; } }"
+    },
+    {
+      "name": "Report Panel",
+      "kind": "card",
+      "refersTo": "report-panel",
+      "description": "High-clarity analytic container for the radar comparison and its text alternative.",
+      "html": "<section class=\"ds-report-panel\"><div><h2>四维评分的能力轮廓</h2><span>图表与文本替代视图</span></div><div class=\"ds-radar\">Baseline ／ Candidate</div></section>",
+      "css": ".ds-report-panel { padding: 27px; color: #241d3d; background: rgba(255, 255, 255, .88); border-radius: 18px; box-shadow: 0 18px 46px rgba(78, 57, 146, .12); font-family: PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif; } .ds-report-panel h2 { margin: 0; font-size: 21px; letter-spacing: -.025em; } .ds-report-panel span { color: #706a84; font-size: 12px; } .ds-radar { display: grid; place-items: center; min-height: 120px; margin-top: 16px; color: #583ccf; background: radial-gradient(circle, rgba(227, 92, 190, .2) 0 22%, rgba(133, 104, 255, .16) 23% 38%, transparent 39%); font-size: 12px; } @media (max-width: 620px) { .ds-report-panel { padding: 20px; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Orchid Control Room",
+    "overview": "Dify AutoPE is an Operate-mode workspace: a quiet, soft-lavender field keeps long evaluation sessions calm while exact data, risks, and release gates remain easy to scan. A translucent white navigation rail and softly lifted white panels keep the interface composed rather than decorative.\n\nOrchid is the active operational signal. It concentrates in the status strip, selected navigation, primary controls, and analytic comparison; rose only introduces the candidate series and a failed gate. The square purple mascot is the compact brand marker. It is not replaced with a generic glyph.",
+    "keyCharacteristics": [
+      "Ambient lavender-to-pink background behind translucent, white control surfaces.",
+      "Orchid status signals and plain, high-contrast risk outcomes before supporting analytics.",
+      "Compact Vant icon navigation with a horizontally scrollable mobile rail.",
+      "Radar comparison always paired with a text table for accessible reading."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Budget Rule",
+        "body": "Orchid is the default active signal. Candidate rose and NO-GO rose are comparison and risk signals, not general decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Display Rule",
+        "body": "Use the self-hosted variable face for page headers; keep controls, metrics, and dense reporting in the body stack.",
+        "section": "typography"
+      },
+      {
+        "name": "The Gate-First Rule",
+        "body": "On reports, the full-width GO or NO-GO banner precedes metrics and chart interpretation; no chart may outrank the release decision.",
+        "section": "layout"
+      },
+      {
+        "name": "The Soft-Lift Rule",
+        "body": "Shadows are violet, broad, and low-opacity. Avoid crisp black shadows or high-contrast borders that would break the atmospheric field.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the soft lavender/pink ambient field behind translucent white surfaces.",
+      "Do use the purple square AutoPE mascot and Vant icon components in their established roles.",
+      "Do place release gates before metrics and analytical graphics, with explicit GO/NO-GO wording and failed-case count.",
+      "Do supply the text table alongside the four-dimension radar chart.",
+      "Do keep the page heading in self-hosted Noto Sans SC Variable and retain the mobile horizontal navigation treatment."
+    ],
+    "donts": [
+      "Don't use chart color as the only explanation of baseline, candidate, or release outcome.",
+      "Don't let analytics, scores, or candidate styling visually override a failed gate.",
+      "Don't replace the translucent rail and diffuse elevation with opaque dark dashboard chrome.",
+      "Don't use the rose candidate/risk signal as the default action color."
+    ]
+  }
+}

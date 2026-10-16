@@ -1,0 +1,48 @@
+schema: autope-governed
+
+context: |
+  Language: zh-CN
+  All artifacts must be written in zh-CN.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  Dify_AutoPE 是独立评测控制面：它拥有数据集、评测证据、机器门禁、人工标注和发布审批；Dify 只是被测运行时。
+  OpenSpec 只用于重大、跨模块或高风险变更：新增/变更外部行为或门禁、数据模型或 Alembic 迁移、认证与密钥边界、Dify 运行时集成、候选隔离/发布/回滚链路、引入外部依赖或生产运行机制。文案、样式、单一测试修复、纯重构和小型内部维护不强制创建 change。
+
+  不得把本地 SQLite、Mock、前端截图、监听端口或静态检查表述为生产集成证据。生产环境必须使用 PostgreSQL、外部 Secret Manager、真实身份认证及独立 Worker；自动评分或候选生成不得自动改写生产 Dify Prompt、发布或回滚。
+  评测用例、Dify/模型调用及向外部服务传输数据必须保留显式授权边界。待人工复核、运行时错误和缺少断言均不是通过或失败的质量结论。高风险/红线安全门禁必须独立于总分，不能被覆盖。
+
+  方案必须区分事实、推断、未知项和人工待办；涉及现有数据、密钥、发布、回滚、生产流量或不可逆操作时，必须明确写为人工审批点，不能假设已获授权。
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+rules:
+  proposal:
+    - 首先说明本变更为何属于 OpenSpec 范围；若不属于，应改用普通任务流程而不是凑出规格。
+    - 必须列出非目标、受影响的控制面状态或 API，以及是否涉及数据、密钥、外部调用或人工发布审批。
+    - 必须把没有验证的生产事实标为未知项，不能把计划或本地结果写成已完成事实。
+  specs:
+    - 涉及评测、审批、发布、回滚、身份、密钥或外部运行时的 requirement 必须写出可观察的拒绝路径或安全失败场景。
+    - 涉及高风险或红线用例时，必须把硬门禁与质量评分分开描述，并至少给出一个不允许绕过的场景。
+  design:
+    - 必须说明数据迁移/兼容性、审计影响、外部调用预算与授权，以及失败恢复或回滚策略；不适用时明确写不适用及原因。
+    - 任何生产 Dify 操作必须保持人工控制台交接；设计不得把平台描述为可自动发布或回滚。
+  tasks:
+    - 每项任务必须写明验证证据；跨服务或高风险变更至少包含后端测试、必要的浏览器或真实运行时验证，以及人工审批待办的区分。
+    - 不得把未经授权的真实模型/Dify调用作为默认验证步骤；需要调用时明确写调用范围、预算和授权前置条件。
+
+operations:
+  apply:
+    guidance:
+      - 先执行可重复的本地验证；任何真实 Dify、模型或生产操作都在用户明确授权后单独执行并记录实际证据。
+      - 保留既有审计证据；不要为让新流程通过而重写历史响应、标注或报告。
+  archive:
+    guidance:
+      - 归档前记录已执行验证、未验证项和仍需人工完成的审批/生产交接；未完成的人工作业不得标记为已交付。

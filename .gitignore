@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+web/node_modules/
+web/dist/
+.env
+.env.*
+!.env.example
+backend/.autope-vault.key
+backend/backups/
+
+*.db
+.DS_Store
